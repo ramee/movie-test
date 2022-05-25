@@ -15,3 +15,18 @@ $ docker-compose run --rm app php artisan migrate
 ```shell
 $ docker-compose up -d
 ```
+
+## import movies
+```shell
+$ docker-compose exec app php artisan import:tmdb-movies
+```
+
+## TODO
+- Top Movies button functionality
+- use redis to cache
+- optimize sql queries with indexes
+- use vuejs as frontend and laravel as an api
+- use POST/DELETE methods to handle movies as favorite
+- wrap eloquent calls into repositories
+- refactor import service
+  - extract TMDB api calls into TMDBClientService
