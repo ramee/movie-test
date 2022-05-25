@@ -2,26 +2,25 @@
 
 namespace App\Providers;
 
+use App\Service\ImportTmdbMoviesService;
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        //
+        $this->app->bind(ImportTmdbMoviesService::class, function () {
+            return new ImportTmdbMoviesService(
+                config('tmdb.api_host'),
+                config('tmdb.api_key'),
+                config('tmdb.image_host'),
+                $this->app->make(Client::class),
+            );
+        });
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         //
     }

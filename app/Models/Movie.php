@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $provider
  * @property int|null $providerId
  */
-class Movies extends Model
+class Movie extends Model
 {
     use HasFactory;
 }
