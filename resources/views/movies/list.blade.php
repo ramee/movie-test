@@ -24,6 +24,8 @@
                                 <div>{{ __('Director') }}: {{ $item->director }}</div>
 
                                 <div class="text-xs">{{ Str::limit($item->description, 50) }}</div>
+
+                                <a href="{{ route('movies:show', ['id' => $item->id]) }}">Show details</a>
                             </div>
                         @endforeach
                     </div>

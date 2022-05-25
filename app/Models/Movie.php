@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property int $id
@@ -18,4 +19,9 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
+    public function usersFavored(): BelongsToMany
+    {
+        return $this->belongsToMany(Movie::class, 'user_movie', 'movie_id', 'user_id');
+    }
 }
