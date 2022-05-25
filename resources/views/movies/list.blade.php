@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Movies') }}
+            {{ $title }}
         </h2>
     </x-slot>
 
@@ -16,14 +16,14 @@
                         @foreach ($list as $item)
                             <div class="card">
                                 <div>
-                                    <h4>#{{ $item->id }} {{ __('Title') }}: {{ $item->title }} ({{ $item->year }})</h4>
+                                    <h4>#{{ $item->id }} {{ $item->title }} ({{ $item->year }})</h4>
                                 </div>
                                 <div>
                                     <img src="{{ $item->photo_url }}" alt="{{ $item->title }}">
                                 </div>
                                 <div>{{ __('Director') }}: {{ $item->director }}</div>
 
-                                <div class="text-xs">{{ __('Description') }}{{ Str::limit($item->description, 50) }}</div>
+                                <div class="text-xs">{{ Str::limit($item->description, 50) }}</div>
                             </div>
                         @endforeach
                     </div>

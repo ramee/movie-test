@@ -11,6 +11,9 @@ class ListMoviesController
 {
     public function __invoke(): View
     {
-        return view('movies.list', ['list' => Movie::paginate(20)]);
+        return view('movies.list', [
+            'list' => Movie::paginate(20),
+            'title' => __('Movies'),
+        ]);
     }
 }
